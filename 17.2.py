@@ -1,13 +1,14 @@
 import sqlite3
+import pandas as pd
+
 connection = sqlite3.connect('books.db')
 
-import pandas as pd
-pd.options.display.max_colums = 10
+#pd.options.display.max_colums = 10
 
 pd.read_sql('SELECT * FROM authors', connection,
              index_col=['id'])
 
-pd.read_sql('SELECT * FROM title', connection)
+pd.read_sql('SELECT * FROM titles', connection)
 df = pd.read_sql('SELECT * FROM author_ISBN', connection)
 df.head()
 
